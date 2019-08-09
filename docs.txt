@@ -1,0 +1,29 @@
+OPCode Structure: LCSX~
+    L = Length (Length of the following opcode)
+    C = Category (Category the command falls under)
+    S = Command (Command to execute)
+    X~ = 0 bytes or more of data for the command
+
+OPCodes:
+    Categories:
+        0 (Basic Arithmetic) - Applies to selected register:
+            L00X: Addition - ADD
+            L01X: Subtraction - SUB
+            L02X: Multiplication - MUL
+            L03: Increment - INC
+            L04: Decrement - DEC
+        1 (Memory) - Applies to selected register:
+            L10X: Store (X=Address) - MEMSTO
+            L11X: Read (X=Address) - MEMREAD
+            L12X: Clear (X=Address) - MEMCLR
+        2 (Register) - Register Noted by X (0-F):
+            L20X: Select - REGSEL
+            L21X: Clear - REGCLR
+            L22XY: Copy (Y=Second Register) - REGCPY
+            L23XY: Move (Y=Second Register) - REGMOV
+            L24XY: Swap (Y=Second Register) - REGSWP
+        3 (Graphics):
+            L30XY: Draw Pixel - DRW
+            L31XY: Erase Pixel - ERS
+            L32: Clear Screen - SCRCLR
+            L33: Fill Screen - SCRFIL
