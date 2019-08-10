@@ -1,0 +1,46 @@
+OPCode Structure: LCSX~
+    L = Length (Length of the following opcode)
+    C = Category (Category the command falls under)
+    S = Command (Command to execute)
+    X~ = 0 bytes or more of data for the command
+
+OPCodes:
+    Categories:
+        0 (Basic Arithmetic) - Applies to selected register:
+            L00X: Addition - ADD X
+            L01X: Subtraction - SUB X
+            L02X: Multiplication - MUL X
+            L03: Increment - INC
+            L04: Decrement - DEC
+        1 (Memory) - Applies to selected register:
+            L10X: Store (X=Address) - MEMSTO X
+            L11X: Read (X=Address) - MEMREAD X
+            L12X: Clear (X=Address) - MEMCLR X
+        2 (Register) - Register Noted by X (0-F):
+            L20X: Select - REGSEL X
+            L21X: Clear - REGCLR X
+            L22XY: Copy (Y=Second Register) - REGCPY X Y
+            L23XY: Move (Y=Second Register) - REGMOV X Y
+            L24XY: Swap (Y=Second Register) - REGSWP X Y
+        3 (Graphics):
+            L30XY: Draw Pixel - DRW X Y
+            L31XY: Erase Pixel - ERS X Y
+            L32: Clear Screen - SCRCLR
+            L33: Fill Screen - SCRFIL
+        4 (Input):
+            L40: Read Input to Selected Register - INPR
+            L41X: Read Input to Memory - INPRM X
+        5 (Stack):
+            L50X: Read Stack Length to Selected Register - STCKRR
+            L51X: Read Stack Memory to Memory - STCKRM X
+            L52: Break from current stack level - STCKBRK
+        6 (Dynamic Execution):
+            L60X: Execute from Memory - EXEC X
+            L61: Break from execution - BREAK
+        7 (Skips) - Skips the next instruction: #TODO
+            L70: Skip if selected register value is 0 - SKPRIZ
+            L71: Skip if selected register value is not 0 - SKPRNZ
+            # Perhaps add memory checking as an alternative
+        8 (Loops): # TODO
+            L80: Loop forever - LOOP
+            L81: Loop until selected register (changes) is 0 - LOOPUZ
