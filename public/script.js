@@ -10,7 +10,7 @@ const height = 320;
 const pixWidth = width / displayWidth;
 const pixHeight = height / displayHeight;
 
-const memorySize = 512;
+const memorySize = 255;
 const cycleSpeed = 30;
 
 canvas.width = width;
