@@ -13,9 +13,9 @@ OPCodes:
             L03: Increment - INC
             L04: Decrement - DEC
         1 (Memory) - Applies to selected register:
-            L10X: Store (X=Address) - MEMSTO X
-            L11X: Read (X=Address) - MEMREAD X
-            L12X: Clear (X=Address) - MEMCLR X
+            L10X: Store (X=Address) - MEMSTO XX
+            L11X: Read (X=Address) - MEMREAD XX
+            L12X: Clear (X=Address) - MEMCLR XX
         2 (Register) - Register Noted by X (0-F):
             L20X: Select - REGSEL X
             L21X: Clear - REGCLR X
@@ -23,19 +23,19 @@ OPCodes:
             L23XY: Move (Y=Second Register) - REGMOV X Y
             L24XY: Swap (Y=Second Register) - REGSWP X Y
         3 (Graphics):
-            L30XY: Draw Pixel - DRW X Y
-            L31XY: Erase Pixel - ERS X Y
+            L30XY: Draw Pixel - DRW XX YY
+            L31XY: Erase Pixel - ERS XX YY
             L32: Clear Screen - SCRCLR
             L33: Fill Screen - SCRFIL
         4 (Input):
             L40: Read Input to Selected Register - INPR
-            L41X: Read Input to Memory - INPRM X
+            L41X: Read Input to Memory - INPRM XX
         5 (Stack):
             L50X: Read Stack Length to Selected Register - STCKRR
-            L51X: Read Stack Memory to Memory - STCKRM X
+            L51X: Read Stack Memory to Memory - STCKRM XX
             L52: Break from current stack level - STCKBRK
         6 (Dynamic Execution):
-            L60X: Execute from Memory - EXEC X
+            L60X: Execute from Memory - EXEC XX
             L61: Break from execution - BREAK
         7 (Skips) - Skips the next instruction: #TODO
             L70: Skip if selected register value is 0 - SKPRIZ
